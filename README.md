@@ -7,6 +7,7 @@ This implementation uses `redux`, `jest` and `enzyme`for testing, and `eslint-co
 - [x] Install redux
 - [x] Install enzyme 
 - [x] Install and configure `eslint-config-airbnb` (see #1)
+- [ ] Create pages for: home, game, game over.
 - [ ] Add basic components (Board, Square)
 - [ ] Add redux components
 - [ ] Complete Square.
