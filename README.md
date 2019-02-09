@@ -1,13 +1,13 @@
 Battleship exercise is implemented in react.
 
-This implementation uses `redux`, `jest` and `enzyme`for testing, and `eslint-config-airbnb`.
+This implementation uses `redux`, `react-router-dom`, `jest` and `enzyme`for testing, and `eslint-config-airbnb`.
 
 ### State of the implementation
 
 - [x] Install redux
 - [x] Install enzyme 
 - [x] Install and configure `eslint-config-airbnb` (see #1)
-- [ ] Create pages for: home, game, game over.
+- [x] Create pages for: home, game, game over.
 - [ ] Add basic components (Board, Square)
 - [ ] Add redux components
 - [ ] Complete Square.
