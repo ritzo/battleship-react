@@ -9,7 +9,7 @@ This implementation uses `redux`, `react-router-dom`, `jest` and `enzyme`for tes
 - [x] Install and configure `eslint-config-airbnb` (see #1)
 - [x] Create pages for: home, game, game over.
 - [X] Add basic components (Board, Square)
-- [ ] Add redux components
+- [X] Add redux components
 - [ ] Complete Square.
 - [ ] Test Square.
 - [ ] Complete Board.
