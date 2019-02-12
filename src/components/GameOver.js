@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import './GameOver.css';
 
+// eslint-disable-next-line no-unused-vars
 const GameOver = ({ gameData, actions }) => (
   <div>
     <h1>GameOver</h1>
@@ -15,12 +16,8 @@ GameOver.propTypes = {
   gameData: PropTypes.shape({
     player: PropTypes.string,
     playerBoard: PropTypes.array.isRequired,
-    playerBoardLast: PropTypes.number,
     oponentBoard: PropTypes.array.isRequired,
-    oponentBoardLast: PropTypes.number,
-    availableShips: PropTypes.array.isRequired,
     state: PropTypes.string.isRequired,
-    next: PropTypes.string,
     winner: PropTypes.string,
   }).isRequired,
   // eslint-disable-next-line react/forbid-prop-types

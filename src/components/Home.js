@@ -2,26 +2,54 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
+import Board from './Board';
+import { BOARD_TYPES } from '../constants/Constants';
+
 import './Home.css';
 
-const Home = ({ gameData, actions }) => (
-  <div>
-    <h1>Home</h1>
-    <Link to="/game">Play</Link>
-  </div>
-);
+class Home extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.gameData = props.gameData;
+    this.actions = props.actions;
+
+    this.name = this.gameData.player;
+    this.playerBoard = this.gameData.playerBoard;
+  }
+
+  handleChange(event) {
+    this.name = event.target.value;
+    this.actions.setName(this.name);
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Home</h1>
+
+        <span>Name:</span>
+        <input type="text" value={this.name} onChange={event => this.handleChange(event)} />
+
+        <Board
+          title="Place your ships admiral"
+          type={BOARD_TYPES.EDITION}
+          squares={this.playerBoard}
+          clickAction={this.clickAction}
+        />
+
+        <Link to="/game">Play</Link>
+      </div>
+    );
+  }
+}
 
 Home.propTypes = {
   gameData: PropTypes.shape({
     player: PropTypes.string,
     playerBoard: PropTypes.array.isRequired,
-    playerBoardLast: PropTypes.number,
-    oponentBoard: PropTypes.array.isRequired,
-    oponentBoardLast: PropTypes.number,
     availableShips: PropTypes.array.isRequired,
     state: PropTypes.string.isRequired,
-    next: PropTypes.string,
-    winner: PropTypes.string,
   }).isRequired,
   // eslint-disable-next-line react/forbid-prop-types
   actions: PropTypes.object.isRequired,

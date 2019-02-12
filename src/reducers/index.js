@@ -16,9 +16,9 @@ import {
 
 const initialState = {
   player: 'Player',
-  playerBoard: Array(100).fill(null),
+  playerBoard: Array(100).fill(''),
   playerBoardLast: null,
-  oponentBoard: Array(100).fill(null),
+  oponentBoard: Array(100).fill(''),
   oponentBoardLast: null,
   availableShips: SHIPS,
   state: STATES.OPEN,
@@ -32,7 +32,7 @@ export default function reducers(state = initialState, action) {
       return initialState;
 
     case SET_NAME:
-      return Object.assign({}, state, { player: action.param });
+      return Object.assign({}, state, { player: action.param, winner: action.param });
 
     case ADD_SHIP:
       return [];

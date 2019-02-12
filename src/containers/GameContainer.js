@@ -11,7 +11,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators([surrender, shoot, oponentTurn], dispatch),
+  actions: bindActionCreators({ surrender, shoot, oponentTurn }, dispatch),
 });
 
 

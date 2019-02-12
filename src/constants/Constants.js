@@ -22,3 +22,9 @@ export const SQUARE_STATES = {
   SHOOT_MISS: 'SHOOT_MISS',
   SHOOT_SHIP: 'SHOOT_SHIP',
 };
+
+export const BOARD_TYPES = {
+  EDITION: 'EDITION',
+  PLAYER: 'PLAYER',
+  OPONENT: 'OPONENT',
+};

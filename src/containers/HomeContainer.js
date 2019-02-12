@@ -11,7 +11,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators([setName, addShip, play], dispatch),
+  actions: bindActionCreators({ setName, addShip, play }, dispatch),
 });
 
 

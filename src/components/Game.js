@@ -5,18 +5,30 @@ import Board from './Board';
 
 import './Game.css';
 
-const Game = ({ gameData, actions }) => (
-  <div>
-    <h1>Game</h1>
+class Game extends React.Component {
+  constructor(props) {
+    super(props);
 
-    <span>Hello</span>
-    <b>{gameData.player}</b>
-    <br />
-    <Board />
+    this.gameData = props.gameData;
+    this.actions = props.actions;
+  }
 
-    <Link to="/gameOver">Surrender</Link>
-  </div>
-);
+  render() {
+    return (
+      <div>
+        <h1>Game</h1>
+
+        <span>Hello</span>
+
+        <b>{this.gameData.player}</b>
+        <br />
+        <Board />
+
+        <Link to="/gameOver">Surrender</Link>
+      </div>
+    );
+  }
+}
 
 Game.propTypes = {
   gameData: PropTypes.shape({
@@ -25,7 +37,6 @@ Game.propTypes = {
     playerBoardLast: PropTypes.number,
     oponentBoard: PropTypes.array.isRequired,
     oponentBoardLast: PropTypes.number,
-    availableShips: PropTypes.array.isRequired,
     state: PropTypes.string.isRequired,
     next: PropTypes.string,
     winner: PropTypes.string,
