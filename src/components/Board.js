@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import Square from './Square';
+import NextShip from './NextShip';
 import { BOARD_TYPES } from '../constants/Constants';
 
 import './Board.css';
@@ -64,7 +65,14 @@ class Board extends React.Component {
 
     this.fun = (index) => {
       // eslint-disable-next-line no-alert
-      alert(`asdsad${index}`);
+      alert(`Square number ${index}`);
+    };
+
+    this.renderEdition = () => {
+      if (!BOARD_TYPES.EDITION === type) {
+        return null;
+      }
+      return (<NextShip />);
     };
 
     return (
@@ -72,6 +80,7 @@ class Board extends React.Component {
         { type }
         <div className="status">{ title }</div>
         { createTable(squares, this.fun) }
+        { this.renderEdition() }
       </div>
     );
   }

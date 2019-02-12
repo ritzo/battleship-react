@@ -16,4 +16,24 @@
 .square:focus {
   outline: none;
 }
-  
+
+.empty {
+  background: hsl(234, 90%, 45%);
+}
+
+.invalid {
+  background: hsl(234, 90%, 45%);
+  cursor: not-allowed;
+}
+
+.ship {
+  background: rgb(6, 75, 35);
+}
+
+.shoot_miss {
+  background: rgb(86, 153, 240);
+}
+
+.shoot_ship {
+  background: rgb(88, 6, 6);
+}

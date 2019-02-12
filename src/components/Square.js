@@ -8,22 +8,21 @@ class Square extends React.Component {
     super(props);
 
     this.state = {
-      title: props.value,
+      value: props.value,
       onClick: props.onClick,
     };
   }
 
   render() {
-    const { title, onClick } = this.state;
+    const { value, onClick } = this.state;
+    const className = `square ${value}`;
 
     return (
       <button
         type="button"
-        className="square"
+        className={className}
         onClick={onClick}
-      >
-        { title }
-      </button>
+      />
     );
   }
 }

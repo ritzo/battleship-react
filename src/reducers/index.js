@@ -12,13 +12,14 @@ import {
   STATES,
   SHIPS,
   PLAYERS,
+  SQUARE_STATES,
 } from '../constants/Constants';
 
 const initialState = {
   player: 'Player',
-  playerBoard: Array(100).fill(''),
+  playerBoard: Array(100).fill(SQUARE_STATES.EMPTY),
   playerBoardLast: null,
-  oponentBoard: Array(100).fill(''),
+  oponentBoard: Array(100).fill(SQUARE_STATES.EMPTY),
   oponentBoardLast: null,
   availableShips: SHIPS,
   state: STATES.OPEN,
