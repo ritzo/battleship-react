@@ -6,7 +6,7 @@ export const STATES = {
 
 export const SHIPS = [2, 3, 3, 3, 4];
 
-export const POSITIONS = {
+export const ORIENTATION = {
   HORIZONTAL: 'horizontal',
   VERTICAL: 'vertical',
 };

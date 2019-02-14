@@ -4,16 +4,13 @@ import {
   surrender, shoot, oponentTurn,
 } from '../actions';
 import Game from '../components/Game';
-import getGameData from '../selector';
+import { getGameData } from '../selector';
 
-const mapStateToProps = state => ({
-  gameData: getGameData(state),
-});
+const mapStateToProps = state => getGameData(state);
 
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({ surrender, shoot, oponentTurn }, dispatch),
 });
-
 
 const GameContainer = connect(
   mapStateToProps,

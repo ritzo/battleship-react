@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import Board from './Board';
+import BoardEditorContainer from '../containers/BoardEditorContainer';
 import { BOARD_TYPES } from '../constants/Constants';
 
 import './Home.css';
@@ -31,7 +31,7 @@ class Home extends React.Component {
         <span>Name:</span>
         <input type="text" value={this.name} onChange={event => this.handleChange(event)} />
 
-        <Board
+        <BoardEditorContainer
           title="Place your ships admiral"
           type={BOARD_TYPES.EDITION}
           squares={this.playerBoard}

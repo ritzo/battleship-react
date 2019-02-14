@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import Board from './Board';
+import BoardContainer from '../containers/BoardEditorContainer';
 
 import './Game.css';
 
@@ -22,7 +22,7 @@ class Game extends React.Component {
 
         <b>{this.gameData.player}</b>
         <br />
-        <Board />
+        <BoardContainer />
 
         <Link to="/gameOver">Surrender</Link>
       </div>

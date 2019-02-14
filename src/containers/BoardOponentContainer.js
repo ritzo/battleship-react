@@ -1,22 +1,23 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+
+import Board from '../components/Board';
 import {
-  setName, play,
+  shoot,
 } from '../actions';
-import Home from '../components/Home';
-import { getGameData } from '../selector';
+import getGameData from '../selector';
 
 const mapStateToProps = state => ({
   gameData: getGameData(state),
 });
 
 const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators({ setName, play }, dispatch),
+  actions: bindActionCreators({ onClickHandler: shoot }, dispatch),
 });
 
-const HomeContainer = connect(
+const BoardContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Home);
+)(Board);
 
-export default HomeContainer;
+export default BoardContainer;
