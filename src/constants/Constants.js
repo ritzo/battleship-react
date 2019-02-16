@@ -22,6 +22,7 @@ export const SQUARE_STATES = {
   SHIP: 'ship',
   SHOOT_MISS: 'shoot_miss',
   SHOOT_SHIP: 'shoot_ship',
+  SHIP_SUNKEN: 'ship_sunken',
 };
 
 export const BOARD_TYPES = {

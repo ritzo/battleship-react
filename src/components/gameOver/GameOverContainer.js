@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { setupBoard } from '../actions';
-import GameOver from '../components/GameOver';
-import { getGameData } from '../selector';
+import { setupBoard } from '../../actions';
+import GameOver from './GameOver';
+import { gameOverData } from '../../selector';
 
-const mapStateToProps = state => getGameData(state);
+const mapStateToProps = state => gameOverData(state);
 
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({ setupBoard }, dispatch),

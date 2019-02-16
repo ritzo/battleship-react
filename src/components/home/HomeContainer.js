@@ -2,13 +2,11 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {
   setName, play,
-} from '../actions';
-import Home from '../components/Home';
-import { getGameData } from '../selector';
+} from '../../actions';
+import Home from './Home';
+import { homeData } from '../../selector';
 
-const mapStateToProps = state => ({
-  gameData: getGameData(state),
-});
+const mapStateToProps = state => homeData(state);
 
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({ setName, play }, dispatch),

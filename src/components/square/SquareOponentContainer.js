@@ -1,23 +1,21 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import Board from '../components/Board';
+import Square from './Square';
 import {
   shoot,
-} from '../actions';
-import getGameData from '../selector';
+} from '../../actions';
+import { editorSquaredData } from '../../selector';
 
-const mapStateToProps = state => ({
-  gameData: getGameData(state),
-});
+const mapStateToProps = state => editorSquaredData(state);
 
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({ onClickHandler: shoot }, dispatch),
 });
 
-const BoardContainer = connect(
+const SquareEditorContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Board);
+)(Square);
 
-export default BoardContainer;
+export default SquareEditorContainer;

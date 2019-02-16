@@ -18,7 +18,6 @@ import {
 
 const initialState = {
   player: 'Player',
-  nextShipOrientation: ORIENTATION.HORIZONTAL,
   editableBoard: Array(10).fill(Array(10).fill(SQUARE_STATES.EMPTY)),
   playerBoard: Array(10).fill(Array(10).fill(SQUARE_STATES.EMPTY)),
   playerBoardLast: null,
@@ -26,20 +25,18 @@ const initialState = {
   oponentBoardLast: null,
   availableShips: SHIPS,
   state: STATES.OPEN,
-  next: null,
+  next: PLAYERS.PLAYER,
   winner: null,
 };
 
 /**
 * Returns true if the position selected for the ship is valid.
 */
-function checkShipPosition(board, position, ship, orientation) {
+function checkShipPosition(board, x, y, ship, orientation) {
   let squares = [];
-  const x = position % 10;
-  const y = Math.floor(position / 10);
 
   if (ORIENTATION.HORIZONTAL === orientation) {
-    squares = board[y].splice(x, x + ship);
+    squares = board[y].slice(x, x + ship);
   } else {
     for (let index = y; index < (y + ship); index += 1) {
       if (index < 10) {
@@ -67,8 +64,8 @@ function markShip(board, x, y) {
   // eslint-disable-next-line no-param-reassign
   board[y][x] = SQUARE_STATES.SHIP;
 
-  const surroundingY = [y - 1, y + 1];
-  const surroundingX = [x - 1, x + 1];
+  const surroundingY = [y - 1, y, y + 1];
+  const surroundingX = [x - 1, x, x + 1];
 
   surroundingY.forEach((eachY) => {
     if (isValidPosition(eachY)) {
@@ -87,18 +84,18 @@ function markShip(board, x, y) {
 /**
 * It adds to the board the ship, starting from the position [x, y].
 */
-function addShip(board, position, ship, orientation) {
-  let x = position % 10;
-  let y = Math.floor(position / 10);
+function addShip(board, x, y, ship, orientation) {
+  let indexX = x;
+  let indexY = y;
 
   for (let index = 0; index < +ship; index += 1) {
     if (ORIENTATION.HORIZONTAL === orientation) {
-      x += index;
+      indexX = x + index;
     } else {
-      y += index;
+      indexY = y + index;
     }
 
-    markShip(board, x, y);
+    markShip(board, indexX, indexY);
   }
 }
 
@@ -123,17 +120,19 @@ export default function reducers(state = initialState, action) {
       return Object.assign({}, state, { player: param });
 
     case ADD_SHIP: {
-      const { editableBoard, nextShipOrientation, availableShips } = state;
+      // TODO mover validaciones a actions
+      const { editableBoard, availableShips } = state;
       const [nextShip] = availableShips;
+      const { orientation, x, y } = param;
 
-      const valid = checkShipPosition(editableBoard, param, nextShip, nextShipOrientation);
+      const valid = checkShipPosition(editableBoard, x, y, nextShip, orientation);
 
       if (!valid) {
         return state;
       }
 
       const newBoard = cloneBoard(editableBoard);
-      addShip(newBoard, param, nextShip, nextShipOrientation);
+      addShip(newBoard, x, y, nextShip, orientation);
       const newAvailableShips = availableShips.slice(1);
 
       return Object.assign({}, state, {
@@ -142,7 +141,9 @@ export default function reducers(state = initialState, action) {
       });
     }
     case PLAY:
-      return Object.assign({}, state, { state: STATES.PLAYING });
+      // Validate if the board is complete and if the state is the right one
+
+      return Object.assign({}, state, { state: STATES.PLAYING, playerBoard: state.editableBoard });
 
     case SURRENDER:
       return Object.assign({}, state, { state: STATES.FINISHED, winner: PLAYERS.OPONENT });

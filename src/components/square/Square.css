@@ -21,8 +21,8 @@
   background: hsl(234, 90%, 45%);
 }
 
-.invalid {
-  background: hsl(234, 90%, 45%);
+.edition .invalid {
+  background: hsl(231, 6%, 49%);
   cursor: not-allowed;
 }
 

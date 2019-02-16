@@ -1,8 +1,8 @@
 import React from 'react';
 import { Switch, Route, HashRouter } from 'react-router-dom';
-import HomeContainer from '../containers/HomeContainer';
-import GameContainer from '../containers/GameContainer';
-import GameOverContainer from '../containers/GameOverContainer';
+import HomeContainer from '../home/HomeContainer';
+import GameContainer from '../game/GameContainer';
+import GameOverContainer from '../gameOver/GameOverContainer';
 
 import './App.css';
 
