@@ -10,10 +10,9 @@ This implementation uses `redux`, `react-router-dom`, `jest` and `enzyme`for tes
 - [x] Create pages for: home, game, game over.
 - [X] Add basic components (Board, Square)
 - [X] Add redux components
-- [ ] Complete Square.
-- [ ] Test Square.
-- [ ] Complete Board.
-- [ ] Test Square.
+- [X] Complete Square.
+- [X] Complete Board.
+- [ ] Tests.
 - [ ] Improve styles
 
 

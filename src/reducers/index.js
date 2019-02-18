@@ -15,41 +15,6 @@ import {
   SQUARE_STATES,
 } from '../constants/Constants';
 
-/*
-const test = [
-  [
-    'empty', 'ship', 'shoot_miss', 'empty', 'ship_sunken', 'empty', 'empty', 'empty', 'empty', 'empty',
-  ],
-  [
-    'empty', 'ship', 'shoot_miss', 'empty', 'ship_sunken', 'empty', 'empty', 'empty', 'empty', 'empty',
-  ],
-  [
-    'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty',
-  ],
-  [
-    'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty',
-  ],
-  [
-    'empty', 'empty', 'empty', 'empty', 'empty', 'ship', 'empty', 'empty', 'empty', 'empty',
-  ],
-  [
-    'empty', 'empty', 'empty', 'empty', 'empty', 'ship', 'empty', 'empty', 'empty', 'empty',
-  ],
-  [
-    'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty',
-  ],
-  [
-    'shoot_ship', 'shoot_ship', 'ship', 'ship', 'ship', 'empty', 'empty', 'empty', 'empty', 'empty',
-  ],
-  [
-    'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty',
-  ],
-  [
-    'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty',
-  ],
-];
-*/
-
 const initialState = {
   player: 'Player',
   editableBoard: Array(10).fill([]).map((() => Array(10).fill(SQUARE_STATES.EMPTY))),
@@ -61,15 +26,17 @@ const initialState = {
   state: STATES.OPEN,
   next: PLAYERS.PLAYER,
   winner: null,
+  surrendered: false,
 };
 
 export default function reducers(state = initialState, action) {
   const { param } = action;
 
   switch (action.type) {
-    case SETUP_BOARD:
-      return initialState;
-
+    case SETUP_BOARD: {
+      const { player } = state;
+      return Object.assign({}, initialState, { player });
+    }
     case SET_NAME:
       return Object.assign({}, state, { player: param });
 
@@ -84,7 +51,11 @@ export default function reducers(state = initialState, action) {
       });
 
     case SURRENDER:
-      return Object.assign({}, state, { state: STATES.FINISHED, winner: PLAYERS.OPONENT });
+      return Object.assign({}, state, {
+        state: STATES.FINISHED,
+        winner: PLAYERS.OPONENT,
+        surrendered: true,
+      });
 
     case SHOOT:
       return Object.assign({}, state, param);

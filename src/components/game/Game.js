@@ -27,6 +27,9 @@ class Game extends React.Component {
       state,
     } = this.props;
 
+    const playerBoardTitle = `${player}'s fleet`;
+    const nextTurn = (next === PLAYERS.PLAYER ? `${player}'s turn` : 'CPU`s turn');
+
     if (state === STATES.OPEN) {
       return <Redirect to="/" />;
     }
@@ -35,35 +38,25 @@ class Game extends React.Component {
       return <Redirect to="/gameOver" />;
     }
 
-    /*
-    if (PLAYERS.OPONENT === next && STATES.PLAYING === state) {
-      // Its the CPU turn
-      setTimeout(() => {
-        this.actions.oponentTurn();
-      }, 300);
-    }
-    */
-
     return (
       <div>
-        <h1>Game</h1>
+        <div>
+          <div className="board-container">
+            <BoardPlayerContainer
+              title={playerBoardTitle}
+              type={BOARD_TYPES.PLAYER}
+            />
+          </div>
+          <div className="board-container">
+            <BoardOponentContainer
+              title="CPU's fleet"
+              type={BOARD_TYPES.OPONENT}
+            />
+          </div>
+        </div>
 
-        <span>Hello</span>
-
-        <b>{ player }</b>
-        <br />
-
-        <BoardPlayerContainer
-          title="Your fleet"
-          type={BOARD_TYPES.PLAYER}
-        />
-
-        <BoardOponentContainer
-          title="CPU's fleet"
-          type={BOARD_TYPES.OPONENT}
-        />
-
-        <button type="button" onClick={() => this.handleSurrenderClick()}>Surrender</button>
+        <p className="next-turn">{nextTurn}</p>
+        <button type="button" className="surrender" onClick={() => this.handleSurrenderClick()}>Surrender</button>
       </div>
     );
   }
@@ -75,7 +68,6 @@ Game.propTypes = {
   state: PropTypes.string.isRequired,
   actions: PropTypes.shape({
     surrender: PropTypes.func.isRequired,
-    // oponentTurn: PropTypes.func.isRequired,
   }).isRequired,
 };
 

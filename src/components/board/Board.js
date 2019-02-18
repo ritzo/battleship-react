@@ -78,9 +78,10 @@ class Board extends React.Component {
 
     return (
       <div className={boardClass}>
-        { type }
         <div className="status">{ title }</div>
-        { createTable(type) }
+        <div className="table-container">
+          { createTable(type) }
+        </div>
         { this.renderEdition() }
       </div>
     );

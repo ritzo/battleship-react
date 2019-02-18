@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
+
+import { STATES, PLAYERS } from '../../constants/Constants';
 
 import './GameOver.css';
 
@@ -11,45 +13,52 @@ class GameOver extends React.Component {
     this.actions = props.actions;
   }
 
-  render() {
-    const {
-      player,
-      playerBoard,
-      oponentBoard,
-      state,
-      winner,
-    } = this.props;
+  handlePlayAgainClick() {
+    this.actions.setupBoard();
+  }
 
+  renderInformation() {
+    const { winner, surrendered } = this.props;
+    const isWinner = winner === PLAYERS.PLAYER;
+
+    if (isWinner) {
+      return (
+        <p>Congratulations</p>
+      );
+    }
     return (
       <div>
-        <h1>GameOver</h1>
-
-        { player }
-        <br />
-        { playerBoard }
-        <br />
-        { oponentBoard }
-        <br />
-        { state }
-        <br />
-        { winner }
-
-        <Link to="/">Play again</Link>
+        <p>Better luck next time</p>
+        <p>{ (surrendered ? 'You ran away' : 'You fought bravely') }</p>
       </div>
     );
   }
-};
+
+  render() {
+    const {
+      state,
+    } = this.props;
+
+    if (state === STATES.OPEN) {
+      return <Redirect to="/" />;
+    }
+
+    return (
+      <div className="game-over">
+        <h1>Game Over</h1>
+
+        { this.renderInformation() }
+
+        <button type="button" className="play" onClick={() => this.handlePlayAgainClick()}>Play again</button>
+      </div>
+    );
+  }
+}
 
 GameOver.propTypes = {
-  player: PropTypes.string.isRequired,
-  playerBoard: PropTypes.arrayOf(
-    PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-  ).isRequired,
-  oponentBoard: PropTypes.arrayOf(
-    PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-  ).isRequired,
   state: PropTypes.string.isRequired,
   winner: PropTypes.string.isRequired,
+  surrendered: PropTypes.bool.isRequired,
   actions: PropTypes.shape({}).isRequired,
 };
 

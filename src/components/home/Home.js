@@ -29,12 +29,16 @@ class Home extends React.Component {
       state,
     } = this.props;
 
+    if (state === STATES.FINISHED) {
+      return <Redirect to="/gameOver" />;
+    }
+
     if (state === STATES.PLAYING) {
       return <Redirect to="/game" />;
     }
 
     return (
-      <div>
+      <div className="home">
         <h1>Home</h1>
 
         <span>Name:</span>
@@ -45,7 +49,7 @@ class Home extends React.Component {
           type={BOARD_TYPES.EDITION}
         />
 
-        <button type="button" onClick={() => this.handlePlayClick()} disabled={availableShips.length}>Play</button>
+        <button type="button" className="play" onClick={() => this.handlePlayClick()} disabled={availableShips.length}>Play</button>
       </div>
     );
   }

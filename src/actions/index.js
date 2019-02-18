@@ -475,7 +475,7 @@ export const shoot = param => (dispatch, getState) => {
     state: (won ? STATES.FINISHED : state),
   }));
 
-  // Triggers the cpu turn
+  // Triggers the cpu turn after a short delay
   if (STATES.PLAYING === state) {
     setTimeout(() => {
       dispatch(oponentTurn());

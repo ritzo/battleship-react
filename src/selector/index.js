@@ -26,15 +26,13 @@ export const gameOverData = createSelector(
     state => state.player,
     state => state.state,
     state => state.winner,
-    state => state.playerBoard,
-    state => state.oponentBoard,
+    state => state.surrendered,
   ],
-  (player, state, winner, playerBoard, oponentBoard) => ({
+  (player, state, winner, surrendered) => ({
     player,
     state,
     winner,
-    playerBoard,
-    oponentBoard,
+    surrendered,
   }),
 );
 

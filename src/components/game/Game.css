@@ -1,0 +1,15 @@
+.board-container {
+    width: 45%;
+    display: inline-block;
+    padding-left: 2%;
+}
+
+.next-turn {
+    font-weight: bold;
+}
+
+.surrender {
+    float: right;
+    margin-right: 50px;
+    padding: 10px;
+}
