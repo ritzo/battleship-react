@@ -372,7 +372,6 @@ export const surrender = param => ({ type: types.SURRENDER, param });
 const shootPrivate = param => ({ type: types.SHOOT, param });
 const oponentTurnPrivate = param => ({ type: types.OPONENT_TURN, param });
 
-
 export const addShip = param => (dispatch, getState) => {
   const state = getState();
 
@@ -390,12 +389,10 @@ export const addShip = param => (dispatch, getState) => {
   addShipToBoard(newBoard, x, y, nextShip, orientation);
   const newAvailableShips = availableShips.slice(1);
 
-  dispatch(addShipPrivate({
+  return dispatch(addShipPrivate({
     editableBoard: newBoard,
     availableShips: newAvailableShips,
   }));
-
-  return null;
 };
 
 export const play = () => (dispatch, getState) => {
@@ -407,7 +404,7 @@ export const play = () => (dispatch, getState) => {
 
   const oponentBoard = createOponentBoard();
 
-  dispatch(playPrivate({
+  return dispatch(playPrivate({
     playerBoard: cleanUpBoard(editableBoard),
     oponentBoard: cleanUpBoard(oponentBoard),
   }));
@@ -435,14 +432,12 @@ export const oponentTurn = () => (dispatch, getState) => {
 
   const won = hasWon(newBoard);
 
-  dispatch(oponentTurnPrivate({
+  return dispatch(oponentTurnPrivate({
     playerBoard: newBoard,
     next: PLAYERS.PLAYER,
     winner: (won ? PLAYERS.OPONENT : winner),
     state: (won ? STATES.FINISHED : state),
   }));
-
-  return null;
 };
 
 export const shoot = param => (dispatch, getState) => {
@@ -471,7 +466,7 @@ export const shoot = param => (dispatch, getState) => {
 
   const won = hasWon(newBoard);
 
-  dispatch(shootPrivate({
+  const action = dispatch(shootPrivate({
     oponentBoard: newBoard,
     next: PLAYERS.OPONENT,
     winner: (won ? PLAYERS.PLAYER : winner),
@@ -485,5 +480,5 @@ export const shoot = param => (dispatch, getState) => {
     }, 500);
   }
 
-  return null;
+  return action;
 };

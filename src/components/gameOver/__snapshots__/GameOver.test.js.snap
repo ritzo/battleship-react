@@ -8,7 +8,7 @@ exports[`GameOver Snapshot 1`] = `
     Game Over
   </h1>
   <p>
-    Congratulations
+    You won, congratulations!
   </p>
   <button
     className="play"

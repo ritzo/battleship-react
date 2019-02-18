@@ -23,12 +23,12 @@ class GameOver extends React.Component {
 
     if (isWinner) {
       return (
-        <p>Congratulations</p>
+        <p>You won, congratulations!</p>
       );
     }
     return (
       <div>
-        <p>Better luck next time</p>
+        <p>You lost, better luck next time</p>
         <p>{ (surrendered ? 'You ran away' : 'You fought bravely') }</p>
       </div>
     );
