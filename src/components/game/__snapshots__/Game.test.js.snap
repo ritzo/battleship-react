@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Game Snapshot 1`] = `
+<div>
+  <div>
+    <div
+      className="board-container"
+    >
+      <Connect(Board)
+        title="someone's fleet"
+        type="player"
+      />
+    </div>
+    <div
+      className="board-container"
+    >
+      <Connect(Board)
+        title="CPU's fleet"
+        type="oponent"
+      />
+    </div>
+  </div>
+  <p
+    className="next-turn"
+  >
+    someone's turn
+  </p>
+  <button
+    className="surrender"
+    onClick={[Function]}
+    type="button"
+  >
+    Surrender
+  </button>
+</div>
+`;

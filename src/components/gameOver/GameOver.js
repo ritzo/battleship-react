@@ -59,7 +59,9 @@ GameOver.propTypes = {
   state: PropTypes.string.isRequired,
   winner: PropTypes.string.isRequired,
   surrendered: PropTypes.bool.isRequired,
-  actions: PropTypes.shape({}).isRequired,
+  actions: PropTypes.shape({
+    setupBoard: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default GameOver;

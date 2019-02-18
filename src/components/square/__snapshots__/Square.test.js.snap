@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Square Snapshot 1`] = `
+<button
+  className="square empty"
+  onClick={[Function]}
+  onContextMenu={[Function]}
+  type="button"
+/>
+`;

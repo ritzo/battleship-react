@@ -39,7 +39,7 @@ class Home extends React.Component {
 
     return (
       <div className="home">
-        <h1>Home</h1>
+        <h1>Battleship react</h1>
 
         <span>Name:</span>
         <input type="text" value={player} onChange={event => this.handleChange(event)} />

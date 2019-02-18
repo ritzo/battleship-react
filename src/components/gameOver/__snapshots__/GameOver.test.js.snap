@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GameOver Snapshot 1`] = `
+<div
+  className="game-over"
+>
+  <h1>
+    Game Over
+  </h1>
+  <p>
+    Congratulations
+  </p>
+  <button
+    className="play"
+    onClick={[Function]}
+    type="button"
+  >
+    Play again
+  </button>
+</div>
+`;

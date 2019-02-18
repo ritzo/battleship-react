@@ -11,9 +11,9 @@ import {
   SQUARE_STATES_SINKING_SHIP,
 } from '../constants/Constants';
 
-const intArraySorter = function (a, b) {
+function intArraySorter(a, b) {
   return a - b;
-};
+}
 
 function cloneBoard(board) {
   return board.map(squares => [...squares]);
@@ -350,7 +350,10 @@ function getOponentNextShot(playerBoard) {
         // The shots were not alligned. Its an error.
         // It shoots in the surroundings of the first shot found.
         surroundingSquares = [
-          { x: positionX, y: positionY - 1 }, { x: positionX, y: positionY + 1 }, { x: positionX - 1, y: positionY }, { x: positionX + 1, y: positionY },
+          { x: positionX, y: positionY - 1 },
+          { x: positionX, y: positionY + 1 },
+          { x: positionX - 1, y: positionY },
+          { x: positionX + 1, y: positionY },
         ];
       }
 

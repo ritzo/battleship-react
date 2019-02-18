@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Board Snapshot 1`] = `
+<div
+  className="someType "
+>
+  <div
+    className="status"
+  >
+    test board
+  </div>
+  <div
+    className="table-container"
+  >
+    <div
+      className="board-row"
+      key="0"
+    />
+    <div
+      className="board-row"
+      key="1"
+    />
+    <div
+      className="board-row"
+      key="2"
+    />
+    <div
+      className="board-row"
+      key="3"
+    />
+    <div
+      className="board-row"
+      key="4"
+    />
+    <div
+      className="board-row"
+      key="5"
+    />
+    <div
+      className="board-row"
+      key="6"
+    />
+    <div
+      className="board-row"
+      key="7"
+    />
+    <div
+      className="board-row"
+      key="8"
+    />
+    <div
+      className="board-row"
+      key="9"
+    />
+  </div>
+</div>
+`;

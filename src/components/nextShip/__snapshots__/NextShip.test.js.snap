@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NextShip Snapshot 1`] = `
+<div>
+  <p>
+    <span>
+      Next ship: 
+    </span>
+    2
+  </p>
+  <p>
+    <span>
+      Ships left: 
+    </span>
+    3
+  </p>
+</div>
+`;
