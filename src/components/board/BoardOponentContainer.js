@@ -7,9 +7,7 @@ import {
 } from '../../actions';
 import { oponentBoardData } from '../../selector';
 
-const mapStateToProps = state => ({
-  gameData: oponentBoardData(state),
-});
+const mapStateToProps = state => oponentBoardData(state);
 
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({ onClickHandler: shoot }, dispatch),

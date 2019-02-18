@@ -18,7 +18,6 @@ class GameOver extends React.Component {
       oponentBoard,
       state,
       winner,
-      actions,
     } = this.props;
 
     return (

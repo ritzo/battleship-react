@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 import BoardPlayerContainer from '../board/BoardPlayerContainer';
 import BoardOponentContainer from '../board/BoardOponentContainer';
 
-import { BOARD_TYPES, STATES } from '../../constants/Constants';
+import { BOARD_TYPES, STATES, PLAYERS } from '../../constants/Constants';
 
 import './Game.css';
 
@@ -27,15 +27,22 @@ class Game extends React.Component {
       state,
     } = this.props;
 
-    /*
     if (state === STATES.OPEN) {
       return <Redirect to="/" />;
     }
-    */
 
     if (state === STATES.FINISHED) {
       return <Redirect to="/gameOver" />;
     }
+
+    /*
+    if (PLAYERS.OPONENT === next && STATES.PLAYING === state) {
+      // Its the CPU turn
+      setTimeout(() => {
+        this.actions.oponentTurn();
+      }, 300);
+    }
+    */
 
     return (
       <div>
@@ -51,6 +58,11 @@ class Game extends React.Component {
           type={BOARD_TYPES.PLAYER}
         />
 
+        <BoardOponentContainer
+          title="CPU's fleet"
+          type={BOARD_TYPES.OPONENT}
+        />
+
         <button type="button" onClick={() => this.handleSurrenderClick()}>Surrender</button>
       </div>
     );
@@ -63,6 +75,7 @@ Game.propTypes = {
   state: PropTypes.string.isRequired,
   actions: PropTypes.shape({
     surrender: PropTypes.func.isRequired,
+    // oponentTurn: PropTypes.func.isRequired,
   }).isRequired,
 };
 

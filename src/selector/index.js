@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { PLAYERS } from '../constants/Constants';
+import { PLAYERS, SQUARE_STATES } from '../constants/Constants';
 
 const getState = state => state;
 
@@ -80,12 +80,26 @@ export const playerSquaredData = createSelector(
   }),
 );
 
+function visibleSquareContent(square) {
+  if (square !== SQUARE_STATES.SHIP_SUNKEN
+      && square !== SQUARE_STATES.SHOOT_MISS
+      && square !== SQUARE_STATES.SHOOT_SHIP) {
+    return SQUARE_STATES.EMPTY;
+  }
+
+  return square;
+}
+
+function getVisibleSquares(board) {
+  return board.map(column => column.map(square => visibleSquareContent(square)));
+}
+
 export const oponentSquaredData = createSelector(
   [
     state => state.oponentBoard,
   ],
   oponentBoard => ({
-    matrix: oponentBoard,
+    matrix: getVisibleSquares(oponentBoard),
   }),
 );
 

@@ -5,9 +5,9 @@ import Square from './Square';
 import {
   shoot,
 } from '../../actions';
-import { editorSquaredData } from '../../selector';
+import { oponentSquaredData } from '../../selector';
 
-const mapStateToProps = state => editorSquaredData(state);
+const mapStateToProps = state => oponentSquaredData(state);
 
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({ onClickHandler: shoot }, dispatch),

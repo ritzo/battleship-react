@@ -18,16 +18,22 @@
 }
 
 .empty {
-  background: hsl(234, 90%, 45%);
+  background: hsl(234, 85%, 61%);
+}
+
+.invalid {
+  background: hsl(234, 85%, 61%);
 }
 
 .edition .invalid {
-  background: hsl(231, 6%, 49%);
+  background: hsl(233, 60%, 81%) !important;
   cursor: not-allowed;
 }
 
 .ship {
   background: rgb(6, 75, 35);
+  border: solid 1px rgb(6, 75, 35);
+
 }
 
 .shoot_miss {
@@ -35,5 +41,15 @@
 }
 
 .shoot_ship {
-  background: rgb(88, 6, 6);
+  background: rgb(206, 104, 64);
+  border: solid 1px rgb(206, 104, 64);
+}
+
+.ship_sunken {
+  background: rgb(252, 3, 3);
+  border: solid 1px rgb(252, 3, 3);
+}
+
+.last-hit{
+  border: 5px solid rgba(9, 64, 78, 0.959);
 }
