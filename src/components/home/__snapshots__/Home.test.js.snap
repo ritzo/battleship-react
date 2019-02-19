@@ -1,8 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Home Snapshot 1`] = `
-<Redirect
-  push={false}
-  to="/game"
-/>
+<div
+  className="home"
+>
+  <h1>
+    Battleship react
+  </h1>
+  <span>
+    Name:
+  </span>
+  <input
+    onChange={[Function]}
+    type="text"
+    value="someone"
+  />
+  <Connect(Board)
+    title="Place your ships admiral"
+    type="edition"
+  />
+  <button
+    className="play"
+    disabled={true}
+    onClick={[Function]}
+    type="button"
+  >
+    Play
+  </button>
+</div>
 `;

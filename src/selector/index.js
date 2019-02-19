@@ -88,6 +88,9 @@ function visibleSquareContent(square) {
   return square;
 }
 
+/**
+ * Hides the square states that the view should not use.
+ */
 function getVisibleSquares(board) {
   return board.map(column => column.map(square => visibleSquareContent(square)));
 }

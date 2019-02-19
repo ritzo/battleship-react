@@ -49,7 +49,7 @@ class Home extends React.Component {
           type={BOARD_TYPES.EDITION}
         />
 
-        <button type="button" className="play" onClick={() => this.handlePlayClick()} disabled={availableShips.length}>Play</button>
+        <button type="button" className="play" onClick={() => this.handlePlayClick()} disabled={!!availableShips.length}>Play</button>
       </div>
     );
   }
@@ -61,6 +61,7 @@ Home.propTypes = {
   state: PropTypes.string.isRequired,
   actions: PropTypes.shape({
     play: PropTypes.func.isRequired,
+    setName: PropTypes.func.isRequired,
   }).isRequired,
 };
 

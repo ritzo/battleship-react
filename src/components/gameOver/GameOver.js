@@ -43,6 +43,10 @@ class GameOver extends React.Component {
       return <Redirect to="/" />;
     }
 
+    if (state === STATES.PLAYING) {
+      return <Redirect to="/game" />;
+    }
+
     return (
       <div className="game-over">
         <h1>Game Over</h1>
