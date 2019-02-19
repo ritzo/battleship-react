@@ -6,7 +6,7 @@ This implementation uses `redux`, `react-router-dom`, `jest` and `enzyme`for tes
 
 - [x] Install redux
 - [x] Install enzyme 
-- [x] Install and configure `eslint-config-airbnb` (see #1)
+- [x] Install and configure `eslint-config-airbnb` [see #1] (#1)
 - [x] Create pages for: home, game, game over.
 - [X] Add basic components (Board, Square)
 - [X] Add redux components
@@ -14,6 +14,7 @@ This implementation uses `redux`, `react-router-dom`, `jest` and `enzyme`for tes
 - [X] Tests.
 - [ ] Improve styles
 
+[Live demo] (https://build-riz3ksp8h.now.sh/#/)
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
