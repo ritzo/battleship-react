@@ -14,7 +14,7 @@ This implementation uses `redux`, `react-router-dom`, `jest` and `enzyme`for tes
 - [X] Tests.
 - [X] Improve styles
 
-[Live demo](https://build-riz3ksp8h.now.sh/#/)
+[Live demo](https://build-eo6nhigg9.now.sh/#/)
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
