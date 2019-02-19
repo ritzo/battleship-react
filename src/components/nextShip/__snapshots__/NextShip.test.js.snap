@@ -1,7 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NextShip Snapshot 1`] = `
-<div>
+<div
+  className="next-ship-container"
+>
+  <p
+    className="edition-hint"
+  >
+    Left click to add a ship horizontally, right click to add it vertically.
+  </p>
+  <p
+    className="edition-hint"
+  >
+    On mobile: press to add a ship horizontally, long press to add it vertically.
+  </p>
   <p>
     <span>
       Next ship: 

@@ -1,8 +1,8 @@
 .game-over {
-    padding-left: 20px;
+    text-align: center;
 }
 
-.play {
-    margin: 0 50px;
+.game-over .play {
     padding: 10px;
+    width: 100%;
 }

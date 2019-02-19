@@ -40,6 +40,8 @@ class Game extends React.Component {
 
     return (
       <div>
+        <p className="next-turn">{nextTurn}</p>
+
         <div>
           <div className="board-container">
             <BoardPlayerContainer
@@ -55,7 +57,6 @@ class Game extends React.Component {
           </div>
         </div>
 
-        <p className="next-turn">{nextTurn}</p>
         <button type="button" className="surrender" onClick={() => this.handleSurrenderClick()}>Surrender</button>
       </div>
     );

@@ -1,26 +1,25 @@
-@media only screen and (min-width: 801px) {
+@media only screen and (min-width: 921px) {
     .board-container {
-        width: 45%;
+        width: 50%;
         display: inline-block;
-        padding-left: 2%;
     }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 920px) {
     .board-container {
         width: 100%;
         display: inline-block;
-        padding-left: 2%;
     }
 }
 
-
 .next-turn {
     font-weight: bold;
+    margin-left: 2%;
 }
 
 .surrender {
     float: right;
-    margin-right: 50px;
+    width: 100%;
+    margin-top: 20px;
     padding: 10px;
 }

@@ -12,7 +12,7 @@ This implementation uses `redux`, `react-router-dom`, `jest` and `enzyme`for tes
 - [X] Add redux components
 - [X] Complete game logic.
 - [X] Tests.
-- [ ] Improve styles
+- [X] Improve styles
 
 [Live demo](https://build-riz3ksp8h.now.sh/#/)
 

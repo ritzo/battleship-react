@@ -9,14 +9,17 @@ function NextShip(props) {
 
   if (!nextShip) {
     return (
-      <div>
+      <div className="next-ship-container">
         <p>The fleet is ready</p>
       </div>
     );
   }
 
   return (
-    <div>
+    <div className="next-ship-container">
+      <p className="edition-hint">Left click to add a ship horizontally, right click to add it vertically.</p>
+      <p className="edition-hint">On mobile: press to add a ship horizontally, long press to add it vertically.</p>
+
       <p>
         <span>Next ship: </span>
         { nextShip }
@@ -24,7 +27,7 @@ function NextShip(props) {
 
       <p>
         <span>Ships left: </span>
-        { availableShips.slice(1).join(', ') }
+        { availableShips.slice(1).join(', ') || '-'}
       </p>
     </div>
   );

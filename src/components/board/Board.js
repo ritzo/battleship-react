@@ -70,7 +70,6 @@ class Board extends React.Component {
       }
       return (
         <div>
-          <p className="edition-hint">Left click to add a ship horizontally, right click to add it vertically.</p>
           <NextShipContainer />
         </div>
       );

@@ -2,6 +2,11 @@
 
 exports[`Game Snapshot 1`] = `
 <div>
+  <p
+    className="next-turn"
+  >
+    someone's turn
+  </p>
   <div>
     <div
       className="board-container"
@@ -20,11 +25,6 @@ exports[`Game Snapshot 1`] = `
       />
     </div>
   </div>
-  <p
-    className="next-turn"
-  >
-    someone's turn
-  </p>
   <button
     className="surrender"
     onClick={[Function]}

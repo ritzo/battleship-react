@@ -41,8 +41,10 @@ class Home extends React.Component {
       <div className="home">
         <h1>Battleship react</h1>
 
-        <span>Name:</span>
-        <input type="text" value={player} onChange={event => this.handleChange(event)} />
+        <div className="name-container">
+          <p>Name</p>
+          <input type="text" className="input-name" value={player} onChange={event => this.handleChange(event)} />
+        </div>
 
         <BoardEditorContainer
           title="Place your ships admiral"

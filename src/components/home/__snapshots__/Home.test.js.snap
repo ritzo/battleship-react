@@ -7,14 +7,19 @@ exports[`Home Snapshot 1`] = `
   <h1>
     Battleship react
   </h1>
-  <span>
-    Name:
-  </span>
-  <input
-    onChange={[Function]}
-    type="text"
-    value="someone"
-  />
+  <div
+    className="name-container"
+  >
+    <p>
+      Name
+    </p>
+    <input
+      className="input-name"
+      onChange={[Function]}
+      type="text"
+      value="someone"
+    />
+  </div>
   <Connect(Board)
     title="Place your ships admiral"
     type="edition"
